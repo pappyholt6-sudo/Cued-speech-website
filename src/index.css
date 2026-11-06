@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* idle life for the avatar */
+.avatar-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: avatar-blink 5.2s infinite;
+}
+.avatar-eye:nth-of-type(2) {
+  animation-delay: 0s;
+}
+@keyframes avatar-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  94% {
+    transform: scaleY(0.08);
+  }
+  96% {
+    transform: scaleY(1);
+  }
+}
+
+.avatar-breathe {
+  animation: avatar-breathe 4.5s ease-in-out infinite;
+}
+@keyframes avatar-breathe {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1.4px);
+  }
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-eye,
+  .avatar-breathe {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
